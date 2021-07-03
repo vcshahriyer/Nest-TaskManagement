@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   db:
     image: postgres
@@ -7,9 +7,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: taskmanagement
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - '5432:5432'
   main:
     container_name: nest
     build:
@@ -24,3 +24,6 @@ services:
       - .env
     depends_on:
       - db
+volumes:
+  pgdata:
+    driver: local
